@@ -1,0 +1,89 @@
+.hero{
+    height:75vh;
+    width:100%;
+    background-image:url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    overflow:hidden;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.2)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    color:white;
+    max-width:650px;
+    margin-left:80px;
+}
+
+.hero-tag{
+    background:#e50914;
+    padding:8px 18px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.hero h1{
+    margin-top:20px;
+    font-size:60px;
+    line-height:70px;
+}
+
+.hero h1 span{
+    color:#e50914;
+}
+
+.hero p{
+    margin:25px 0;
+    font-size:18px;
+    line-height:30px;
+}
+
+.hero-btn{
+    padding:15px 35px;
+    border:none;
+    background:#e50914;
+    color:white;
+    font-size:18px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#b20710;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+.hero{
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    margin-left:0;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:38px;
+    line-height:48px;
+}
+
+}

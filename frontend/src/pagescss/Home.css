@@ -1,0 +1,134 @@
+/* Global / Body Styles */
+body {
+  background: #f8fafc;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Unique Home Page Container - Prevents clashing */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 80vh;
+  box-sizing: border-box;
+}
+
+/* Heading Style */
+.home-container h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.home-container h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6c63ff, #4f46e5);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 20px;
+}
+
+/* Story Grid - Updated to 3-Column Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards in a row */
+  gap: 24px;
+  width: 100%;
+}
+
+/* Story Card Individual Styling */
+.story-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(108, 99, 255, 0.18);
+}
+
+/* Image fallback added to keep layout clean even if image URL is broken */
+.story-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background-color: #e2e8f0; /* Soft gray placeholder background */
+  display: block;
+}
+
+.story-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.story-card h2 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.story-card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.story-card .author {
+  font-size: 0.9rem;
+  color: #4f46e5;
+  font-weight: 600;
+  margin-top: auto; 
+}
+
+/* Smooth Animation on Load */
+.grid > * {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Drops to 2 cards on tablets/smaller screens */
+  }
+  .home-container h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr; /* Drops to 1 card per row on mobile phones */
+  }
+  .home-container {
+    padding: 20px 15px;
+  }
+}

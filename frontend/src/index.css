@@ -1,0 +1,9 @@
+*{
+    font-family: 'Copperplate', 'Papyrus', fantasy;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1, h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
