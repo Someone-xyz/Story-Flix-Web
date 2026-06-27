@@ -15,7 +15,9 @@ const io = new Server(server, {
     origin: [
       "http://localhost:3000",
       "http://localhost:5173",
-      "http://192.168.0.101:5173"
+      "http://192.168.0.101:5173",
+      "https://story-flix.vercel.app/",
+      "https://story-flix.vercel.app"
     ],
     credentials: true
   }
