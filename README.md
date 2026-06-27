@@ -1,2 +1,21 @@
 # Story-Flix-Web
-A story website to start go in terminal write cd backend then npm i then npm run start or npm run dev and in second terminal cd frontend and then npm i and then npm run dev
+A story website 
+To start project : 
+1: go in terminal 
+2: write cd backend 
+3: npm i 
+4: npm run start or npm run dev 
+5: In second terminal cd frontend 
+6: then npm i
+7: then npm run dev
+8:In backend folder make these variable
+PORT=<YOURT_PORT>
+MONGO_URI=<YOUR_MONGODB_ATLAS_URI>
+IMAGEKIT_PRIVATE_KEY=<YOUR_IMAGEKIT_PRIVET_KEY>
+JWT_SECRET=<YOUR_JWT_SECRET_KEY>
+IMAGEKIT_PUBLIC_KEY=<YOUR_IMAGEKIT_PUBLIC_KEY>
+IMAGEKIT_URL_ENDPOINT=<YOUR_IMAGEKIT_URL_ENDPOINT>
+OPENROUTER_API_KEY=<YOUR_OPENROUTER_API_KEY>
+CLOUDINARY_CLOUD_NAME=<YOUR_CLOUDINARY_CLOUD_NAME>
+CLOUDINARY_API_KEY=<YOUR_CLOUDINARY_API_KEY>
+CLOUDINARY_API_SECRET=<YOUR_CLOUDINARY_API_SECRET>
