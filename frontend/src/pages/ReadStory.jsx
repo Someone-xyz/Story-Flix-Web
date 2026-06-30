@@ -42,7 +42,6 @@ function ReadStory() {
             <img src={story.bookCover} alt={story.title} />
             <h1 className="story-Title">{story.title}</h1>
             <h3>By {story.author}</h3>
-            <p>{story.storyDescription}</p>
             <div className="story--Content">{story.storyContent}</div>
           </>
         ) : (
