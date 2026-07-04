@@ -31,7 +31,6 @@
     "puppeteer": "^25.1.0",
     "socket": "^1.1.124",
     "socket.io": "^4.8.3",
-    "socketio": "^1.0.0",
-    "yt-dlp-exec": "^1.0.2"
+    "socketio": "^1.0.0"
   }
 }
