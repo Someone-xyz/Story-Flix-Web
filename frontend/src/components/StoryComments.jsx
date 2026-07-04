@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
-
+const socket = io("https://story-flix-web-production.up.railway.app");
+//https://story-flix-web-production.up.railway.app
 function StoryComments({ storyId, currentUser }) {
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
@@ -12,7 +12,7 @@ function StoryComments({ storyId, currentUser }) {
 
     socket.emit("joinStory", storyId);
 
-    fetch(`http://localhost:5000/api/comments/${storyId}`)
+    fetch(`https://story-flix-web-production.up.railway.app/api/comments/${storyId}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
 

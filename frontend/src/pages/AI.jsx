@@ -21,7 +21,7 @@ export default function Ai() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/ai/chat",
+        "https://story-flix-web-production.up.railway.app/api/ai/chat",
         { message: userMsg }
       );
 

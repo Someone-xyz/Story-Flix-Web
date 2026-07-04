@@ -24,7 +24,9 @@ const allowedOrigins = [
     'http://192.168.0.101:5173/',
     '192.168.0.101:5173',
     'https://story-flix.vercel.app/',
-    'https://story-flix.vercel.app'
+    'https://story-flix.vercel.app',
+    'https://story-flix-web-production.up.railway.app',
+    'https://story-flix-web-production.up.railway.app/'
 ];
 
 app.use(cors({

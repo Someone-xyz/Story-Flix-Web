@@ -32,7 +32,7 @@ const SingleVideo = () => {
   const fetchVideo = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/video/get/vid/${id}`
+        `https://story-flix-web-production.up.railway.app/api/video/get/vid/${id}`
       );
 
       setVideo(res.data.video);

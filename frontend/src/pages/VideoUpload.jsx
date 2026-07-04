@@ -28,7 +28,7 @@ const VideoUpload = () => {
       formData.append("video", video);
 
       const response = await axios.post(
-        "http://localhost:5000/api/video/upload",
+        "https://story-flix-web-production.up.railway.app/api/video/upload",
         formData,
         {
           headers: {
