@@ -8,7 +8,6 @@ const videoRoutes = require('./routes/video.route.js');
 const commentRoute = require("./routes/comment.route");
 const { chromium } = require('playwright');
 const storyModel = require('./Models/storyModel.model.js');
-const ytDlp = require("yt-dlp-exec");
 const videoModel = require('./Models/video.model.js');
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -153,7 +152,7 @@ app.get('/sraper/story', async (req, res) => {
     }
 });
 
-app.get("/import-videos", async (req, res) => {
+/*app.get("/import-videos", async (req, res) => {
     try {
         const data = await ytDlp(
             "https://www.youtube.com/@HindiFairyTales/videos",
@@ -201,7 +200,7 @@ app.get("/import-videos", async (req, res) => {
             message: error.message,
         });
     }
-});
+});*/
 
 
 //https://www.urdupoint.com/kids/category/moral-stories.html
