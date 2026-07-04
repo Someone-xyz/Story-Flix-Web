@@ -30,13 +30,25 @@ const Videos = () => {
     }
   };
 
+  // Shuffle Function
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+
+    return newArray;
+  };
+
   const fetchVideos = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/video/get/vid"
+        "https://story-flix-web-production.up.railway.app/api/video/get/vid"
       );
 
-      setVideos(res.data.videos);
+      setVideos(shuffleArray(res.data.videos));
     } catch (err) {
       console.log(err);
     }
@@ -46,7 +58,6 @@ const Videos = () => {
     fetchVideos();
   }, []);
 
-  // Search filter
   const filteredVideos = videos.filter((video) =>
     video.title.toLowerCase().includes(search.toLowerCase())
   );

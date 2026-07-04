@@ -17,10 +17,22 @@ function Home() {
     fetchStories();
   }, []);
 
+  // Shuffle Function
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+
+    return newArray;
+  };
+
   async function fetchStories() {
     try {
       const data = await getAllStories();
-      setStories(data.stories);
+      setStories(shuffleArray(data.stories));
     } catch (err) {
       console.log(err);
     } finally {
@@ -43,10 +55,7 @@ function Home() {
       <Hero />
 
       <div className="home-container">
-        <SearchBar
-          search={search}
-          setSearch={setSearch}
-        />
+        <SearchBar search={search} setSearch={setSearch} />
 
         <h1>All Stories</h1>
 
@@ -56,10 +65,7 @@ function Home() {
           <div className="grid">
             {filteredStories.length > 0 ? (
               filteredStories.map((story) => (
-                <StoryCard
-                  key={story._id}
-                  story={story}
-                />
+                <StoryCard key={story._id} story={story} />
               ))
             ) : (
               <h2>No Story Found.</h2>
