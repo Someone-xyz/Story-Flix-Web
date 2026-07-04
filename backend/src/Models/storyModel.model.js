@@ -23,7 +23,21 @@ const storySchema = new mongoose.Schema({
         required : [true, 'story content is required'],
         trim : true,
         unique : [true, 'story content already exists it must be unique Copyright']
+    },
+    likes: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
+],
+
+    dislikes: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
+]
+
 }, {timestamps:true})
 
 const storyModel = mongoose.model('Story', storySchema);

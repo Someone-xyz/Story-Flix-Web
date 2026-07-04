@@ -9,48 +9,32 @@ import SearchBar from "../components/SearchBar";
 import "../pagescss/Home.css";
 
 function Home() {
-
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-
-    async function fetchStories() {
-
-      try {
-
-        const data = await getAllStories();
-
-        setStories(data.stories);
-
-      } catch (err) {
-
-        console.log(err);
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-    }
-
     fetchStories();
-
   }, []);
 
-  // Search Logic
-  const filteredStories = stories.filter((story) =>
+  async function fetchStories() {
+    try {
+      const data = await getAllStories();
+      setStories(data.stories);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
-    story.title.toLowerCase().includes(search.toLowerCase()) ||
-
-    story.description?.toLowerCase().includes(search.toLowerCase()) ||
-
-    story.author?.toLowerCase().includes(search.toLowerCase())
-
-  );
+  const filteredStories = stories.filter((story) => {
+    return (
+      story.title.toLowerCase().includes(search.toLowerCase()) ||
+      story.storyDescription?.toLowerCase().includes(search.toLowerCase()) ||
+      story.author?.toLowerCase().includes(search.toLowerCase())
+    );
+  });
 
   return (
     <>
@@ -59,7 +43,6 @@ function Home() {
       <Hero />
 
       <div className="home-container">
-
         <SearchBar
           search={search}
           setSearch={setSearch}
@@ -73,7 +56,10 @@ function Home() {
           <div className="grid">
             {filteredStories.length > 0 ? (
               filteredStories.map((story) => (
-                <StoryCard key={story._id} story={story} />
+                <StoryCard
+                  key={story._id}
+                  story={story}
+                />
               ))
             ) : (
               <h2>No Story Found.</h2>

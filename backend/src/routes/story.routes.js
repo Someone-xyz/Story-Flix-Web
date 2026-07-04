@@ -1,6 +1,6 @@
 const multer = require('multer');
 const express = require('express');
-const { getAllStories, addStory, deleteStory, updateStory, getStoryById } = require('../controllers/story.controllers.js');
+const { getAllStories, addStory, deleteStory, updateStory, getStoryById, likeStory, dislikeStory } = require('../controllers/story.controllers.js');
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -11,6 +11,8 @@ router.post('/upload/story', upload.single('storyCover'), addStory);
 router.delete('/delete/story/:id', deleteStory);
 router.put( '/update/story/:id', upload.single('storyCover'), updateStory );
 router.get('/get/story/:id', getStoryById);
+router.put("/like/:id", likeStory);
+router.put("/dislike/:id", dislikeStory);
 
 // router.get('/test', (req, res) => {
 //     res.status(200).json({ message : 'story routes are working' });
