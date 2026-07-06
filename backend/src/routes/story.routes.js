@@ -11,8 +11,6 @@ router.post('/upload/story', upload.single('storyCover'), addStory);
 router.delete('/delete/story/:id', deleteStory);
 router.put( '/update/story/:id', upload.single('storyCover'), updateStory );
 router.get('/get/story/:id', getStoryById);
-router.put("/like/:id", likeStory);
-router.put("/dislike/:id", dislikeStory);
 
 // router.get('/test', (req, res) => {
 //     res.status(200).json({ message : 'story routes are working' });
