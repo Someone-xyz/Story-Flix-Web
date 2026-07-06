@@ -24,18 +24,14 @@ const storySchema = new mongoose.Schema({
         trim : true,
         unique : [true, 'story content already exists it must be unique Copyright']
     },
-    likes: [
-    {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }
-],
-
-    dislikes: [
-    {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }
+   likes: {
+    type: Number,
+    default: 0
+},
+dislikes: {
+    type: Number,
+    default: 0
+}
 ]
 
 }, {timestamps:true})

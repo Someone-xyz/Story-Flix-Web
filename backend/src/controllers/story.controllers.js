@@ -125,12 +125,8 @@ const updateStory = async (req, res) => {
 }
 
 const likeStory = async (req, res) => {
-
     try {
-
-        const { id } = req.params;
-
-        const story = await storyModel.findById(id);
+        const story = await storyModel.findById(req.params.id);
 
         if (!story) {
             return res.status(404).json({
@@ -138,70 +134,26 @@ const likeStory = async (req, res) => {
             });
         }
 
-        const token = req.cookies.token;
+        story.likes += 1;
 
-        try {
+        await story.save();
 
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-            const userId = decoded.id;
-
-            // Agar already like hai to unlike
-            if (story.likes.includes(userId)) {
-
-                story.likes.pull(userId);
-
-                await story.save();
-
-                return res.status(200).json({
-                    message: "Like removed",
-                    likes: story.likes.length,
-                    dislikes: story.dislikes.length
-                });
-
-            }
-
-            // Agar dislike ki hui hai to remove karo
-            if (story.dislikes.includes(userId)) {
-                story.dislikes.pull(userId);
-            }
-
-            // Like add karo
-            story.likes.push(userId);
-
-            await story.save();
-
-            res.status(200).json({
-                message: "Story liked successfully",
-                likes: story.likes.length,
-                dislikes: story.dislikes.length
-            });
-
-        } catch (err) {
-
-            return res.status(401).json({
-                message: "Unauthorized"
-            });
-
-        }
+        res.status(200).json({
+            message: "Story liked successfully",
+            likes: story.likes,
+            dislikes: story.dislikes
+        });
 
     } catch (err) {
-
         res.status(400).json({
             message: err.message
         });
-
     }
-
-}
+};
 
 const dislikeStory = async (req, res) => {
-
     try {
-
-        const { id } = req.params;
-
-        const story = await storyModel.findById(id);
+        const story = await storyModel.findById(req.params.id);
 
         if (!story) {
             return res.status(404).json({
@@ -209,61 +161,21 @@ const dislikeStory = async (req, res) => {
             });
         }
 
-        const token = req.cookies.token;
+        story.dislikes += 1;
 
-        try {
+        await story.save();
 
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-            const userId = decoded.id;
-
-            // Agar already dislike hai to remove
-            if (story.dislikes.includes(userId)) {
-
-                story.dislikes.pull(userId);
-
-                await story.save();
-
-                return res.status(200).json({
-                    message: "Dislike removed",
-                    likes: story.likes.length,
-                    dislikes: story.dislikes.length
-                });
-
-            }
-
-            // Agar like ki hui hai to remove
-            if (story.likes.includes(userId)) {
-                story.likes.pull(userId);
-            }
-
-            // Dislike add
-            story.dislikes.push(userId);
-
-            await story.save();
-
-            res.status(200).json({
-                message: "Story disliked successfully",
-                likes: story.likes.length,
-                dislikes: story.dislikes.length
-            });
-
-        } catch (err) {
-
-            return res.status(401).json({
-                message: "Unauthorized"
-            });
-
-        }
+        res.status(200).json({
+            message: "Story disliked successfully",
+            likes: story.likes,
+            dislikes: story.dislikes
+        });
 
     } catch (err) {
-
         res.status(400).json({
             message: err.message
         });
-
     }
-
-}
+};
 
 module.exports = { getAllStories, addStory, deleteStory, updateStory, getStoryById, likeStory, dislikeStory };
