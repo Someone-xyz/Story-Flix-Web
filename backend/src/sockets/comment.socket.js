@@ -2,7 +2,6 @@ const Comment = require("../Models/comment.model.js");
 
 module.exports = (io) => {
   io.on("connection", (socket) => {
-    console.log("User connected");
 
     socket.on("joinStory", (storyId) => {
       socket.join(storyId);
@@ -24,7 +23,6 @@ module.exports = (io) => {
     });
 
     socket.on("disconnect", () => {
-      console.log("User disconnected");
     });
   });
 };
