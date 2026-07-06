@@ -66,18 +66,3 @@ export const deleteStory = async (id) => {
   return response.data;
 };
 
-// =====================
-// LIKE STORY
-// =====================
-export const likeStory = async (id) => {
-  const response = await API.put(`/story/like/${id}`);
-  return response.data;
-};
-
-// =====================
-// DISLIKE STORY
-// =====================
-export const dislikeStory = async (id) => {
-  const response = await API.put(`/story/dislike/${id}`);
-  return response.data;
-};
