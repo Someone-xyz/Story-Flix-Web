@@ -45,7 +45,7 @@ const Videos = () => {
   const fetchVideos = async () => {
     try {
       const res = await axios.get(
-        "https://story-flix-web-production.up.railway.app/api/video/get/vid"
+        "http://localhost:5000/api/video/get/vid"
       );
 
       setVideos(shuffleArray(res.data.videos));

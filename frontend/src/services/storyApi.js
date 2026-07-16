@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://story-flix-web-production.up.railway.app",
+  baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 
@@ -50,17 +50,6 @@ export const updateStory = async (id, formData) => {
         "Content-Type": "multipart/form-data",
       },
     }
-  );
-
-  return response.data;
-};
-
-// =====================
-// DELETE STORY
-// =====================
-export const deleteStory = async (id) => {
-  const response = await API.delete(
-    `/story/delete/story/${id}`
   );
 
   return response.data;

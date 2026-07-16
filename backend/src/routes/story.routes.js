@@ -1,6 +1,6 @@
 const multer = require('multer');
 const express = require('express');
-const { getAllStories, addStory, deleteStory, updateStory, getStoryById, likeStory, dislikeStory } = require('../controllers/story.controllers.js');
+const { getAllStories, addStory, deleteStory, updateStory, getStoryById } = require('../controllers/story.controllers.js');
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -15,6 +15,6 @@ router.get('/get/story/:id', getStoryById);
 // router.get('/test', (req, res) => {
 //     res.status(200).json({ message : 'story routes are working' });
 //     console.log('Cookies : ', req.cookies);
-// }); For testing purpose
+// }); For testing and debugging purpose
 
 module.exports = router; 

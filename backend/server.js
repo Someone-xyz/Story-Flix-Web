@@ -6,6 +6,9 @@ const { Server } = require("socket.io");
 const app = require("./src/app");
 const connectDB = require("./src/config/db");
 
+const dns = require('dns');
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
+
 connectDB();
 
 const server = http.createServer(app);

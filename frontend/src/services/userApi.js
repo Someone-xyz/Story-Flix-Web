@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://story-flix-web-production.up.railway.app",
+  baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 
